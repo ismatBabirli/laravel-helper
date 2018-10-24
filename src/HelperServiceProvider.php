@@ -10,14 +10,17 @@ class HelperServiceProvider extends ServiceProvider
 
     public function boot(){
 
-//        $this->mergeConfigFrom(
-//            __DIR__.'/config/iAuth.php', 'iAuth'
-//        );
-//
-//
-//        $this->publishes([
-//            __DIR__.'/config/iAuth.php' => config_path('iAuth.php'),
-//        ]);
+        $this->mergeConfigFrom(
+            __DIR__.'/config/iAuth.php', 'iAuth'
+        );
+
+
+        $this->publishes([
+            __DIR__.'/config/iAuth.php' => config_path('iAuth.php'),
+        ]);
+        $this->commands([
+
+        ]);
         $this->loadRoutesFrom(__DIR__.'/Auth/web.php');
 
     }
