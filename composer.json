@@ -1,0 +1,19 @@
+{
+    "name": "ismat/helper",
+    "description": "For own development",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ismat Babirli",
+            "email": "i.babirli@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ismat\\Helper\\": "src/"
+        }
+    }
+}
