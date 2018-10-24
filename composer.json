@@ -15,5 +15,13 @@
         "psr-4": {
             "Ismat\\Helper\\": "src/"
         }
+    },
+    "extra": {
+    "laravel": {
+        "providers": [
+            "Ismat\\Helper\\HelperServiceProvider"
+        ]
+
     }
+}
 }
