@@ -17,11 +17,10 @@
         }
     },
     "extra": {
-    "laravel": {
-        "providers": [
-            "Ismat\\Helper\\HelperServiceProvider"
-        ]
-
+        "laravel": {
+            "providers": [
+                "Ismat\\Helper\\HelperServiceProvider"
+            ]
+        }
     }
-}
 }
