@@ -17,6 +17,18 @@ use Kreait\Firebase\ServiceAccount;
 class Methods
 {
 
+    public static function createResponse($code = 1, $message = "OK", $content = [], $status_code = 200)
+    {
+
+        $response = [
+            'responseCode' => $code,
+            "responseMessage" => $message,
+            "responseContent" => (isset($content) and !is_null($content)) ? $content : []
+        ];
+
+        return response($response, $status_code);
+    }
+
     public static function createPicture($picture, $x, $y, $extension, $type, $base64 = true)
     {
         if ($base64) {
