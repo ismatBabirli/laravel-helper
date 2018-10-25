@@ -39,7 +39,7 @@ class Methods
         $image = Image::make($picture);
         $image->resize($y, $x);
         $p_name = config("iConfig.image_output_folder") . $type . "/p_" . str_random(10) . strtotime(Carbon::now()) . '.' . $extension;
-        if (!is_dir(config("iConfig.image_output_folder") . $type))
+        if (!is_dir(public_path(config("iConfig.image_output_folder") . $type)))
             self::createDir(config("iConfig.image_output_folder") . $type . "/");
         $image->save(public_path() . $p_name);
         return $p_name;
