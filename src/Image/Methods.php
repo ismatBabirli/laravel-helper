@@ -59,10 +59,12 @@ class Methods
             ->withServiceAccount($serviceAccount)
             ->create();
         $auth = $firebase->getAuth();
-        return $auth->getUser($uid);
+        $user = $auth->getUser($uid);
+        $user->disabled = !self::checkLastLoginDate($user->metadata->lastLoginAt);
+        return $user;
     }
 
-    public static function checkLastLoginDate($lastLogin)
+    private static function checkLastLoginDate($lastLogin)
     {
         //Check User last login if user logged now
         return ($lastLogin->setTimezone(Carbon::now()->getTimezone()) > Carbon::now()->subSeconds(config("iConfig.login_check_time_duration")));
