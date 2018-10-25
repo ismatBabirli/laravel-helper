@@ -17,7 +17,7 @@ class Image
 {
 
 
-    public static function create($picture, $x, $y, $extension, $type, $base64 = true)
+    public static function create($picture, $x, $y, $extension, $type, $base64 = false)
     {
         if ($base64) {
             $explode = explode(',', $picture);
