@@ -16,6 +16,7 @@ class HelperServiceProvider extends ServiceProvider
         );
 
 
+
         $this->publishes([
             __DIR__ . '/config/iConfig.php' => config_path('iConfig.php'),
         ]);
