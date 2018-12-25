@@ -18,15 +18,20 @@ class Auth
 
     public static function getUserData($uid)
     {
-        $serviceAccount = ServiceAccount::fromJsonFile(config("iConfig.admin_config_json_path"));
+        try {
+            $serviceAccount = ServiceAccount::fromJsonFile(config("iConfig.admin_config_json_path"));
 
-        $firebase = (new Factory)
-            ->withServiceAccount($serviceAccount)
-            ->create();
-        $auth = $firebase->getAuth();
-        $user = $auth->getUser($uid);
-        $user->disabled = !self::checkLastLoginDate($user->metadata->lastLoginAt);
-        return $user;
+            $firebase = (new Factory)
+                ->withServiceAccount($serviceAccount)
+                ->create();
+            $auth = $firebase->getAuth();
+            $user = $auth->getUser($uid);
+            $user->disabled = !self::checkLastLoginDate($user->metadata->lastLoginAt);
+            return $user;
+
+        } catch (\Exception $exception) {
+            return null;
+        }
     }
 
     private static function checkLastLoginDate($lastLogin)
