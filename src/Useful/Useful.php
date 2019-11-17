@@ -8,6 +8,7 @@
 
 namespace Ismat\Helper\Useful;
 
+use Illuminate\Support\Arr;
 
 class Useful
 {
