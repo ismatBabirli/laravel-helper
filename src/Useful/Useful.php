@@ -14,12 +14,13 @@ class Useful
     public static function createResponse($code = 1, $message = "OK", $content = [], $status_code = 200)
     {
 
-        $response = [
+              $response = [
             'responseCode' => $code,
             "responseMessage" => $message,
-            "responseContent" => (isset($content) and !is_null($content)) ? $content : []
+//            "responseContent" => (isset($content) and !is_null($content)) ? $content : []
         ];
-
+        if (isset($content) and $content != [])
+            $response = Arr::add($response, "responseContent", $content);
         return response($response, $status_code);
     }
 
